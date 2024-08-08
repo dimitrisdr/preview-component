@@ -1,6 +1,7 @@
 let shareContainer = document.querySelector('.share-container')
 let btnContainer = document.querySelector('.btn-container')
 let authorInfoContainer = document.querySelector('.author-info-container')
+let mainContent = document.querySelector('.main-content')
 let btn = document.querySelector('.btn')
 
 function putSharecontainerToProperParent(){
@@ -19,9 +20,8 @@ window.addEventListener('resize', ()=> {
     putSharecontainerToProperParent()
 })
 
-
 btn.addEventListener('click', ()=> {
-    shareContainer.classList.toggle('hidden')
+    mainContent.classList.toggle('hidden')
 })
 
 putSharecontainerToProperParent()

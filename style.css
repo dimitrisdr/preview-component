@@ -53,13 +53,14 @@ body {
 .img-container {
     background-image: url('images/drawers.jpg');
     background-size: cover;
-    min-height: 30vh;
+    height: 30vh;
+    min-height: 300px;
     border-radius: 12px 12px 0 0;
 }
 
 .main-content {
     display: grid;
-    gap: 2rem;
+    gap: 1rem;
     /* padding: 2rem 1.5rem; */
 }
 
@@ -82,7 +83,7 @@ body {
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding: 2rem 2rem;
+    padding: 1rem 2rem;
 }
 
 .btn-container {
@@ -98,8 +99,21 @@ body {
     cursor: pointer;
 }
 
-.btn:focus {
-    background-color: var(--Very-Dark-Grayish-Blue);
+.btn {
+    background-color: var(--Grayish-Blue);
+    transition: 0.2s ease-in;
+}
+
+.btn svg path{
+    fill: white;
+}
+
+.hidden .btn {
+    background-color: var(--Light-Grayish-Blue);
+}
+
+.hidden .btn svg path{
+    fill: #6E8098;
 }
 
 .author-info {
@@ -139,6 +153,10 @@ body {
     padding-block: 0;
     border-radius: 0 0 12px 12px ;
     /* top: 100%; */
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+    transition: opacity 0.2s ease-in;
 }
 
 .share-icons-container {
@@ -172,9 +190,13 @@ body {
     color: hsl(228, 45%, 44%); 
 }
 
-.hidden {
-    display: none;
+
+.hidden .share-container {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
 }
+
 
 @media screen and (min-width:1000px) {
     
@@ -185,6 +207,10 @@ body {
     .wraper {
         grid-template-columns: repeat(2, 1fr);
         max-width: 800px;
+    }
+
+    .author-info-container {
+        padding-bottom: 2rem;
     }
 
     .share-container {
@@ -212,6 +238,10 @@ body {
         border-bottom: var(--arrow-length) solid transparent;
         border-left: var(--arrow-length) solid transparent;
         border-right: var(--arrow-length) solid transparent;
-    }    
-
+    }   
+    
+    .img-container {
+        height: auto;
+        min-height: auto;
+    }
 }
