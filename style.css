@@ -1,0 +1,217 @@
+/* css reset */
+
+*,*::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope';
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* custom properties */
+:root {
+    --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+    --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+    --Grayish-Blue: hsl(212, 23%, 69%);
+    --Light-Grayish-Blue: hsl(210, 46%, 95%);
+}
+
+
+/* css utility classes */
+
+.font-bold {
+    color: var(--Very-Dark-Grayish-Blue);
+    font-weight: 700;
+}
+
+
+/* general css */
+
+body {
+    display: grid;
+    place-content: center;
+    gap: 3rem;
+    min-height: 100vh;
+    background-color: var(--Light-Grayish-Blue);
+}
+
+.wraper {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    color: var(--Desaturated-Dark-Blue);
+    background-color: #ffff;
+    box-shadow: 0 20px 20px -5px var(--Grayish-Blue);
+    margin-top: 2rem;
+    border-radius: 12px;
+}
+
+.img-container {
+    background-image: url('images/drawers.jpg');
+    background-size: cover;
+    min-height: 30vh;
+    border-radius: 12px 12px 0 0;
+}
+
+.main-content {
+    display: grid;
+    gap: 2rem;
+    /* padding: 2rem 1.5rem; */
+}
+
+.main-content > *:not(.author-info-container){
+    padding-inline: 2rem;
+}
+
+.title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding-top: 2rem;
+}
+
+.description {
+    line-height: 1.6;
+}
+
+.author-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 0.5rem 2rem;
+}
+
+.btn-container {
+    z-index: 100;
+    position: relative;
+}
+
+.btn {
+    border: none;
+    width: 35px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btn:focus {
+    background-color: var(--Very-Dark-Grayish-Blue);
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-img {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.author-main-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+}
+
+.name {
+    color: var(--Very-Dark-Grayish-Blue);
+    font-weight: 700;
+}
+
+.date {
+    font-weight: 300;
+}
+
+.share-container {
+    background-color: var(--Very-Dark-Grayish-Blue);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    border-radius: 0 0 12px 12px ;
+    /* top: 100%; */
+}
+
+.share-icons-container {
+    flex-grow: 0.2;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+
+.share-container svg {
+   zoom: 1.3;
+}
+
+.share-txt {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--Light-Grayish-Blue);
+}
+
+/* front end mentor styles */
+
+.attribution { 
+    font-size: 11px;
+     text-align: center;
+     margin-bottom: 2rem; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (min-width:1000px) {
+    
+    .img-container {
+        border-radius: 12px 0 0 12px;
+    }
+
+    .wraper {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+    }
+
+    .share-container {
+        --custom-block-padding:2rem;
+        inset: unset;
+        padding-left: unset;
+        border-radius: 12px;
+        padding: 1rem var(--custom-block-padding);
+        gap: 2rem;
+        top:calc(-100% - (var(--custom-block-padding) + 1rem));  
+        left: 50%;
+        transform: translateX(-50%);     
+    }
+    
+    .share-container::after {
+        --arrow-length:1rem;
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1rem;
+        aspect-ratio: 1;
+        border-top: var(--arrow-length) solid var(--Very-Dark-Grayish-Blue);
+        border-bottom: var(--arrow-length) solid transparent;
+        border-left: var(--arrow-length) solid transparent;
+        border-right: var(--arrow-length) solid transparent;
+
+    }    
+
+}
